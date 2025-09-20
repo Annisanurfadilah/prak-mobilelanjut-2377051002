@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColumnWidget extends StatelessWidget {
+  // ignore: use_super_parameters
   const ColumnWidget({Key? key}) : super(key: key);
 
   @override

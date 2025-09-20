@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RowWidget extends StatelessWidget {
+  // ignore: use_super_parameters
   const RowWidget({Key? key}) : super(key: key);
 
   @override
