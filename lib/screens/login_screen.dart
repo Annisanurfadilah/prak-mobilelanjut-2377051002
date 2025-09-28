@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
+import 'dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const route = '/signin';
@@ -42,7 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         boxShadow: [
           BoxShadow(
-            // ignore: deprecated_member_use
             color: const Color(0xFF1E88FF).withOpacity(0.25),
             blurRadius: 10,
             offset: const Offset(0, 4),
@@ -101,7 +101,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        // ignore: deprecated_member_use
                         color: const Color(0xFF1E88FF).withOpacity(0.25),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
@@ -134,9 +133,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 20),
 
                       primaryButton('Login', () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Login success')),
-                        );
+                        if (_email.text.isEmpty || _password.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Please fill all the fields'),
+                            ),
+                          );
+                          return;
+                        } else {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            DashboardScreen.route,
+                            (route) => false,
+                          );
+                        }
                       }),
                       const SizedBox(height: 12),
 

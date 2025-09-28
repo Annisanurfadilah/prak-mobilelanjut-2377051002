@@ -3,7 +3,6 @@ import 'login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   static const route = '/signup';
-  // ignore: use_super_parameters
   const SignupScreen({Key? key}) : super(key: key);
 
   @override
@@ -25,46 +24,42 @@ class _SignupScreenState extends State<SignupScreen> {
 
   // Label dengan tanda bintang
   Widget requiredLabel(String text) => Row(
-        children: [
-          Text(text, style: const TextStyle(fontSize: 13)),
-          const Text(
-            '*',
-            style: TextStyle(color: Colors.red, fontSize: 13),
-          ),
-        ],
-      );
+    children: [
+      Text(text, style: const TextStyle(fontSize: 13)),
+      const Text('*', style: TextStyle(color: Colors.red, fontSize: 13)),
+    ],
+  );
 
   // Tombol utama
   Widget primaryButton(String label, VoidCallback onTap) => GestureDetector(
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          height: 50,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(28),
-            gradient: const LinearGradient(
-              colors: [Color(0xFF1E88FF), Color(0xFF207DFF)],
-            ),
-            boxShadow: [
-              BoxShadow(
-                // ignore: deprecated_member_use
-                color: const Color(0xFF1E88FF).withOpacity(0.25),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Text(
-            label,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+    onTap: onTap,
+    child: Container(
+      width: double.infinity,
+      height: 50,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        gradient: const LinearGradient(
+          colors: [Color(0xFF1E88FF), Color(0xFF207DFF)],
         ),
-      );
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF1E88FF).withOpacity(0.25),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +102,6 @@ class _SignupScreenState extends State<SignupScreen> {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
-                        // ignore: deprecated_member_use
                         color: const Color(0xFF1E88FF).withOpacity(0.25),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
@@ -178,9 +172,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             context,
                             LoginScreen.route,
                           ),
-                          child: const Text(
-                            'Already have an account? Login',
-                          ),
+                          child: const Text('Already have an account? Login'),
                         ),
                       ),
                     ],
